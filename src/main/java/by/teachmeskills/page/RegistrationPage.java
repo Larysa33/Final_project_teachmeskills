@@ -4,7 +4,6 @@ import by.teachmeskills.util.PropertiesLoader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 import java.util.Properties;
 
@@ -17,16 +16,15 @@ public class RegistrationPage extends BasePage {
     private static final By REGISTRATION_PASSWORD_HINT = By.id("registration_password_hint");
     private static final By REQUIRED_CHECKBOX_1 = By.id("registration_terms_of_use");
     private static final By REQUIRED_CHECKBOX_2 = By.id("registration_lost_password_warning_registered");
-    private static final By OK_BUTTON = By.xpath("//div[text()=' OK ']");
-    private static final By REGISTER_BUTTON = By.xpath("//a[text()=' Register ']");
+    private static final By OK_BUTTON = By.xpath("//div[contains(text(), 'OK')]");
+    private static final By REGISTER_BUTTON = By.xpath("//a[contains(text(), 'Register')]");
 
-    private static final By SIGN_UP_BUTTON = By.xpath("//a[text()=' Sign up – it’s free! ']");
-    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[text()=' Mandatory field ']");
-    private static final By REGISTRATION_ERROR = By.xpath("//div[text()=' Registration not successful ']");
-    private static final By CONFIRMATION_PASSWORD_ERROR = By.xpath("//div[text()='  Password confirmation " +
-            "doesn't match ']");
-    private static final By SUCCESSFUL_REGISTRATION = By.xpath("//h1[text()=' User registered ']");
-    private static final By REGISTRATION_PAGE_IS_OPEN = By.xpath("//h1[text()=' Registration ']");
+    private static final By SIGN_UP_BUTTON = By.xpath("//a[contains(text(), 'Sign up – it’s free!')]");
+    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[contains(text(), 'Mandatory field')]");
+    private static final By REGISTRATION_ERROR = By.xpath("//div[contains(text(), 'Registration not successful')]");
+    private static final By CONFIRMATION_PASSWORD_ERROR = By.xpath("//div[contains(text(), 'Password confirmation doesn't match')]");
+    private static final By SUCCESSFUL_REGISTRATION = By.xpath("//h1[contains(text(), 'User registered')]");
+    private static final By REGISTRATION_PAGE_IS_OPEN = By.xpath("//h1[contains(text(), 'Registration')]");
     private static final By SHORT_PASSWORD_HINT = By.xpath("//div[text()='Password is too short. Min. " +
             "8 characters']");
     private static final By INVALID_PASSWORD_HINT = By.xpath("//div[text()='Permitted: letters, digits," +
@@ -131,19 +129,17 @@ public class RegistrationPage extends BasePage {
         return driver.findElement(CONFIRMATION_PASSWORD_ERROR).isDisplayed();
     }
 
-
-    public boolean isFirstMandatoryFieldDisplays() {
+    public boolean ifFirstMandatoryFieldDisplays() {
         return displayedMandatoryFieldHints.get(0).isDisplayed();
     }
 
-    public boolean isSecondMandatoryFieldDisplays() {
+    public boolean ifSecondMandatoryFieldDisplays() {
         return displayedMandatoryFieldHints.get(1).isDisplayed();
     }
 
-   public boolean isThirdMandatoryFieldDisplays() {
+   public boolean ifThirdMandatoryFieldDisplays() {
        return displayedMandatoryFieldHints.get(2).isDisplayed();
     }
-
 
     public boolean ifSuccessfulRegistrationTextDisplays()
     {

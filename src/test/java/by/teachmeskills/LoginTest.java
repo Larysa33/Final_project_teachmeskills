@@ -1,7 +1,6 @@
 package by.teachmeskills;
 
 import by.teachmeskills.page.LoginPage;
-import lombok.extern.log4j.Log4j2;
 import org.testng.annotations.Test;
 
 import static by.teachmeskills.page.LoginPage.LOGIN_FAILED_TEXT;
@@ -56,11 +55,11 @@ public class LoginTest extends BaseTest {
                 .as("Login page must be opened by direct link.");
         loginPage.loginWithEmptyFields();
         if(loginPage.displayedMandatoryFieldHints.size() == 2) {
-            assertThat(loginPage.getFirstMandatoryFieldText())
+            assertThat(loginPage.ifFirstMandatoryFieldTextDisplays())
                     .isEqualTo(MANDATORY_FIELD_TEXT)
                     .as("The hint \"" + MANDATORY_FIELD_TEXT + "\" must display below the empty 'user' field.");
 
-            assertThat(loginPage.getSecondMandatoryFieldText())
+            assertThat(loginPage.ifSecondMandatoryFieldTextDisplays())
                     .isEqualTo(MANDATORY_FIELD_TEXT)
                     .as("The hint \"" + MANDATORY_FIELD_TEXT + "\" must display below the empty 'password' field.");
         }else{
