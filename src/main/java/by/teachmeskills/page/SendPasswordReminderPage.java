@@ -11,11 +11,11 @@ import static by.teachmeskills.page.LoginPage.MAIN_PAIGE_LOGIN_BUTTON;
 public class SendPasswordReminderPage extends BasePage {
     private static final By EMAIL = By.id("email");
     private static final By OK_BUTTON = By.name("commit");
-    private static final By PAGE_IS_OPEN_TEXT = By.xpath("//h1[text()=' Send yourself a password reminder ']");
-    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[text()=' Mandatory field ']");
-    private static final By PASSWORD_SENT_HINT = By.xpath("//p[text()=' If the email address you" +
-            " entered is recognised, an email with a password hint will be sent to it. ']");
-    private static final By SEND_PASSWORD_REMINDER_LINK = By.xpath("//a[text()=' Send password reminder ']");
+    private static final By PAGE_IS_OPEN_TEXT = By.xpath("//h1[contains(text(), 'Send yourself a password reminder')]");
+    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[contains(text(), 'Mandatory field')]");
+    private static final By PASSWORD_SENT_HINT = By.xpath("//p[contains(text(), 'If the email address you" +
+            " entered is recognised, an email with a password hint will be sent to it.')]");
+    private static final By SEND_PASSWORD_REMINDER_LINK = By.xpath("//a[contains(text(), 'Send password reminder')]");
 
     public static final String MANDATORY_FIELD_HINT_TEXT = "Mandatory field";
     public static final String PASSWORD_SENT_HINT_TEXT = "If the email address you entered is recognised, an email" +

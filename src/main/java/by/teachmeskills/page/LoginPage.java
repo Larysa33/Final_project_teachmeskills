@@ -1,6 +1,5 @@
 package by.teachmeskills.page;
 import by.teachmeskills.util.PropertiesLoader;
-import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,18 +10,15 @@ public class LoginPage extends BasePage {
 
     private static final By USER = By.id("login");
     private static final By PASSWORD = By.id("password");
-    private static final By LOGIN_PAGE_IS_OPEN_TEXT = By.xpath("//h1[text()=' Login ']");
-    private static final By LOGIN_FAILED = By.xpath("//div[text()=' Login failed ']");
-    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[text()=' Mandatory field ']");
+    private static final By LOGIN_PAGE_IS_OPEN_TEXT = By.xpath("//h1[contains(text(), 'Login')]");
+    private static final By LOGIN_FAILED = By.xpath("//div[contains(text(), 'Login failed')]");
+    private static final By MANDATORY_FIELD_HINT = By.xpath("//div[contains(text(), 'Mandatory field')]");
     public static final By MAIN_PAIGE_LOGIN_BUTTON = By.xpath("//a[text()='Login']");
-    private static final By LOGIN_BUTTON = By.xpath("//div[text()=' Login ']");
+    private static final By LOGIN_BUTTON = By.xpath("//div[contains(text(), 'Login')]");
     public static final String LOGIN_FAILED_TEXT = "Login failed";
     public static final String MANDATORY_FIELD_TEXT = "Mandatory field";
 
     public List<WebElement> displayedMandatoryFieldHints = driver.findElements(MANDATORY_FIELD_HINT);
-    public WebElement firstHint = displayedMandatoryFieldHints.get(0);
-    public WebElement secondHint = displayedMandatoryFieldHints.get(1);
-
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -63,12 +59,12 @@ public class LoginPage extends BasePage {
         driver.findElement(LOGIN_BUTTON).click();
     }
 
-    public String getFirstMandatoryFieldText() {
-        return firstHint.getText();
+    public boolean ifFirstMandatoryFieldTextDisplays() {
+        return displayedMandatoryFieldHints.get(0).isDisplayed();
     }
 
-    public String getSecondMandatoryFieldText() {
-        return secondHint.getText();
+    public boolean ifSecondMandatoryFieldTextDisplays() {
+        return displayedMandatoryFieldHints.get(1).isDisplayed();
     }
 
     public boolean ifLoginFailedTextDisplays() {

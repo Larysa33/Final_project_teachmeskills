@@ -31,7 +31,7 @@ public class RegistrationTest extends BaseTest {
                 "12345678", "1");
         assertThat(registrationPage.ifRegistrationErrorTextDisplays())
                 .isEqualTo(true)
-                .as("It's possible to register with already registered email time.");
+                .as("It's possible to register with already registered email.");
     }
 
     @Test(priority = 2)
@@ -71,15 +71,15 @@ public class RegistrationTest extends BaseTest {
 
 
         if (registrationPage.displayedMandatoryFieldHints.size() == 3) {
-            assertThat(registrationPage.isFirstMandatoryFieldDisplays())
+            assertThat(registrationPage.ifFirstMandatoryFieldDisplays())
                     .isEqualTo(true)
                     .as("The error \"" + MANDATORY_FIELD_TEXT + "\" must display below email field.");
 
-            assertThat(registrationPage.isSecondMandatoryFieldDisplays())
+            assertThat(registrationPage.ifSecondMandatoryFieldDisplays())
                     .isEqualTo(true)
                     .as("The error \"" + MANDATORY_FIELD_TEXT + "\" must display below first checkbox.");
 
-            assertThat(registrationPage.isThirdMandatoryFieldDisplays())
+            assertThat(registrationPage.ifThirdMandatoryFieldDisplays())
                     .isEqualTo(true)
                     .as("The error \"" + MANDATORY_FIELD_TEXT + "\" must display below second checkbox.");
         } else {
