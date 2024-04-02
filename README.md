@@ -14,12 +14,6 @@ that were used for this project:
 
 **TestNG**
 
-**Selenium**
-
-**Log4j2** 
+**Selenium** 
 
 **AssertJ**
-
-The project has **Page Object** pattern.
-
-For logging use **Log4j2** library from **Lombok** library.
